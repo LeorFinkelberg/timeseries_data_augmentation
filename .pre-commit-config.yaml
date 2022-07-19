@@ -1,0 +1,46 @@
+exclude: _pb2\.py$
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.1.0
+  hooks:
+    - id: end-of-file-fixer
+    - id: check-added-large-files
+      args: ["--maxkb=800"]
+    - id: fix-byte-order-marker
+    - id: detect-private-key
+    - id: trailing-whitespace
+    - id: check-docstring-first
+    - id: check-merge-conflict
+    - id: check-yaml
+    - id: check-toml
+    - id: check-json
+
+
+- repo: https://github.com/pre-commit/mirrors-isort
+  rev: v5.7.0  # Use the revision sha / tag you want to point at
+  hooks:
+    - id: isort
+      args: ["--profile", "black"]
+
+- repo: https://github.com/psf/black
+  rev: 22.3.0
+  hooks:
+    - id: black
+      args: ["--config=pyproject.toml"]
+      language_version: python3
+    - id: black-jupyter
+
+- repo: https://github.com/asottile/pyupgrade
+  rev: v2.31.1
+  hooks:
+  - id: pyupgrade
+    args: ['--py37-plus']
+
+- repo: https://github.com/pre-commit/pygrep-hooks
+  rev: v1.9.0
+  hooks:
+  - id: python-check-mock-methods
+  - id: python-use-type-annotations
+
+ci:
+  autoupdate_commit_msg: 'chore: pre-commit autoupdate'

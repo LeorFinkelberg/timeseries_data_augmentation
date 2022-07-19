@@ -1,0 +1,9 @@
+matplotlib==3.5.1
+numpy==1.22.1
+pandas==1.4.0
+scikit-learn==0.24.2
+scipy==1.7.3
+seaborn==0.11.2
+tabulate==0.8.9
+pydantic==1.9.0
+swifter==1.1.2
